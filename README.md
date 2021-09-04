@@ -1,4 +1,4 @@
-# Anonymous-survival
+# PlayerHider
 
 플레이어의 닉네임과 스킨을 숨기는 마인크래프트 플러그인
 
