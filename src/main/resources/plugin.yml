@@ -1,0 +1,16 @@
+name: PlayerHider
+author: KrHanwoo
+version: ${project.version}
+main: com.hanwoo.playerhider.PlayerHider
+api-version: 1.16
+
+commands:
+  kill:
+    usage: /kill
+  who:
+    usage: /who
+    permission: playerhider.who
+
+permissions:
+  playerhider.who:
+    default: op
