@@ -7,10 +7,23 @@ api-version: 1.16
 commands:
   kill:
     usage: /kill
+    permission: playerhider.kill
   who:
     usage: /who
     permission: playerhider.who
+  list:
+    usage: /list
+    permission: playerhider.list
+  playerhider:
+    usage: /playerhider
+    permission: playerhider.reload
 
 permissions:
+  playerhider.kill:
+    default: true
   playerhider.who:
+    default: op
+  playerhider.list:
+    default: op
+  playerhider.reload:
     default: op

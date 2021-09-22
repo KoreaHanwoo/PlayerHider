@@ -6,7 +6,7 @@
 
     <groupId>com.hanwoo</groupId>
     <artifactId>playerhider</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>PlayerHider</name>
