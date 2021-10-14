@@ -84,7 +84,7 @@ public class Events implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
-        if(!plugin.manager.confDeathBan){
+        if (!plugin.manager.confDeathBan) {
             return;
         }
         if (e.getEntity().isOp() && plugin.manager.confDeathOpBypass) {
@@ -97,7 +97,7 @@ public class Events implements Listener {
 
     @EventHandler
     public void onRespawn(PlayerRespawnEvent e) {
-        if(!plugin.manager.confDeathBan){
+        if (!plugin.manager.confDeathBan) {
             return;
         }
         if (e.getPlayer().isOp() && plugin.manager.confDeathOpBypass) {
@@ -113,7 +113,7 @@ public class Events implements Listener {
 
     @EventHandler
     public void onLogin(AsyncPlayerPreLoginEvent e) {
-        if(!plugin.manager.confDeathBan){
+        if (!plugin.manager.confDeathBan) {
             return;
         }
         if (Bukkit.getOperators().stream().anyMatch(o -> o.getUniqueId().equals(e.getUniqueId())) && plugin.manager.confDeathOpBypass) {
@@ -163,13 +163,11 @@ public class Events implements Listener {
         if (plugin.manager.eventOp(e.getPlayer())) {
             if (!e.getMessage().equalsIgnoreCase("/kill")) {
                 e.setCancelled(true);
-            } else {
-                if (!plugin.manager.confKillCommand) {
-                    e.setCancelled(true);
-                }
+            } else if (!plugin.manager.confKillCommand) {
+                e.setCancelled(true);
             }
         }
-        plugin.manager.logMessage(plugin.manager.getName(e.getPlayer().getUniqueId()) + ": " + e.getMessage());
+        plugin.manager.logMessage(ChatColor.GRAY + plugin.manager.getName(e.getPlayer().getUniqueId()) + ": " + e.getMessage());
     }
 
     @EventHandler

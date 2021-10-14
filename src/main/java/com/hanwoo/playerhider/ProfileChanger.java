@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 
 public class ProfileChanger {
 
-    public void changeProfile(Player player, String name, String textures, String signature, int ping) {
+    public void changeProfile(Player player, String name, String textures, String signature) {
         GameProfile profile = ((CraftPlayer) player).getHandle().getProfile();
         PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
         try {
@@ -24,8 +24,6 @@ public class ProfileChanger {
         connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, ((CraftPlayer) player).getHandle()));
         profile.getProperties().removeAll("textures");
         profile.getProperties().put("textures", new Property("textures", textures, signature));
-        EntityPlayer entityPlayer = ((CraftPlayer) player).getHandle();
-        entityPlayer.ping = ping;
-        connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, entityPlayer));
+        connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ((CraftPlayer) player).getHandle()));
     }
 }

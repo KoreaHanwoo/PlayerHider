@@ -23,7 +23,6 @@ public class Manager {
     public String confName;
     public String confTextures;
     public String confSignature;
-    public int confPing;
     public boolean confLogConsole;
     public boolean confLogOp;
     public boolean confNoJoinInvincibility;
@@ -60,7 +59,6 @@ public class Manager {
         confName = plugin.getConfig().getString("profile.name", "???");
         confTextures = plugin.getConfig().getString("profile.textures", "");
         confSignature = plugin.getConfig().getString("profile.signature", "");
-        confPing = plugin.getConfig().getInt("profile.ping", 0);
         confLogConsole = plugin.getConfig().getBoolean("log.console", true);
         confLogOp = plugin.getConfig().getBoolean("log.op", true);
         confNoJoinInvincibility = plugin.getConfig().getBoolean("noJoinInvincibility", true);
@@ -150,7 +148,7 @@ public class Manager {
     }
 
     public void changeProfile(Player player) {
-        changer.changeProfile(player, confName, confTextures, confSignature, confPing);
+        changer.changeProfile(player, confName, confTextures, confSignature);
     }
 
     public void saveNameMap() {

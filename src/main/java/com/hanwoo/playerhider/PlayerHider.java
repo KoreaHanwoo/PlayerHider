@@ -20,7 +20,7 @@ public final class PlayerHider extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new Events(this), this);
 
-        if(manager.confForceGameRule){
+        if (manager.confForceGameRule) {
             for (World world : getServer().getWorlds()) {
                 world.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
                 world.setGameRule(GameRule.SHOW_DEATH_MESSAGES, false);
@@ -34,14 +34,14 @@ public final class PlayerHider extends JavaPlugin {
         disableLoad();
     }
 
-    private void enableLoad(){
+    private void enableLoad() {
         saveDefaultConfig();
         manager.loadConfig();
         manager.loadNameMap();
         manager.loadDeathMap();
     }
 
-    private void disableLoad(){
+    private void disableLoad() {
         manager.saveNameMap();
         manager.saveDeathMap();
     }
@@ -69,7 +69,7 @@ public final class PlayerHider extends JavaPlugin {
             Bukkit.getOnlinePlayers().forEach(p -> names.add(ChatColor.WHITE + manager.getName(p.getUniqueId())));
             sender.sendMessage(String.format("최대 %d명 중 %d명이 온라인입니다: %s", Bukkit.getMaxPlayers(), Bukkit.getOnlinePlayers().size(), String.join(ChatColor.GRAY + ", ", names)));
         }
-        if(command.getName().equalsIgnoreCase("playerhider")){
+        if (command.getName().equalsIgnoreCase("playerhider")) {
             disableLoad();
             enableLoad();
             sender.sendMessage("설정을 리로드 하였습니다");
